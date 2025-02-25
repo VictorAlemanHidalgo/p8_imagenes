@@ -1,43 +1,74 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MiImagen());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MiImagen extends StatelessWidget {
+  const MiImagen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            "Mis Imagenes",
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold, // Ajusta el estilo del subtítulo
+                color: Color(0xff000000)),
+          ),
+          backgroundColor: const Color(0xfff4b1c7),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Victor Aleman Hidalgo. Mat: 22308051281123',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontStyle:
+                        FontStyle.italic, // Ajusta el estilo del subtítulo
+                    color: Colors.grey[600]),
+              ),
+              // Primera imagen desde la red
+              Image.network(
+                'https://raw.githubusercontent.com/VictorAlemanHidalgo/Imagenes-para-app-flutter-6J/refs/heads/main/agenda1.jpg',
+                width: 200, // Ancho opcional
+                height: 200, // Alto opcional
+                fit: BoxFit.cover, // Ajuste opcional
+              ),
+              const SizedBox(height: 20), // Espacio entre las imágenes
+              Text(
+                'Agenda para estudio',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontStyle:
+                        FontStyle.italic, // Ajusta el estilo del subtítulo
+                    color: Colors.grey[600]),
+              ),
+              const SizedBox(height: 20),
+              // Segunda imagen desde la red
+              Image.network(
+                'https://raw.githubusercontent.com/VictorAlemanHidalgo/Imagenes-para-app-flutter-6J/refs/heads/main/consultoria.jpg',
+                width: 200, // Ancho opcional
+                height: 200, // Alto opcional
+                fit: BoxFit.cover, // Ajuste opcional
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Consultoria para emprendedoras',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontStyle:
+                        FontStyle.italic, // Ajusta el estilo del subtítulo
+                    color: Colors.grey[600]),
+              ),
+            ],
+          ),
         ),
       ),
     );
-  }
-}
+  } // Widget build
+} // Clase mi Imagen
